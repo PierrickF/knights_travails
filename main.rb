@@ -1,10 +1,9 @@
 # frozen_string_literal: false
 
-require 'colorize'
-require_relative 'board'
-require_relative 'knight'
+require_relative 'node'
+require_relative 'tree'
 
-board = Board.new
-knight = Knight.new
+def knight_move(start, destination)
+  board = Array.new(8) { Array.new(8) { 'o' } }
+end
 
-board.show
