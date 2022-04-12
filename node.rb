@@ -1,10 +1,10 @@
 # frozen_string_literal: false
 
 class Node
-  attr_accessor :value, :left_child, :right_child
+  attr_accessor :position, :left_child, :right_child
 
-  def initialize(value)
-    @value = value
+  def initialize(position)
+    @position = position
     @left_child = nil
     @right_child = nil
   end
