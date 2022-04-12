@@ -3,7 +3,9 @@
 require_relative 'node'
 require_relative 'tree'
 
-def knight_move(start, destination)
-  board = Array.new(8) { Array.new(8) { 'o' } }
+board = Array.new(8) { Array.new(8) { 'o' } }
+
+def knight_move(start, destination, board)
+  # stuff
 end
 
