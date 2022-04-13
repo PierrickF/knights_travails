@@ -1,10 +1,10 @@
 # frozen_string_literal: false
 
 class Node
-  attr_accessor :position, :vertices
+  attr_accessor :position, :neighbors
 
   def initialize(position)
     @position = position
-    @vertices = []
+    @neighbors = []
   end
 end
