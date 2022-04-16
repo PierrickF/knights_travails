@@ -3,8 +3,8 @@
 require_relative 'node'
 
 board = Array.new(8) { Array.new(8) { 'o' } }
-previous_position = nil
-def knight_move(start, destination, board, previous_position)
+ban_list = []
+def knight_move(start, destination, board, ban_list)
   # Stop recursion when arrived at destination
   return nil if start == destination
 
@@ -17,13 +17,16 @@ def knight_move(start, destination, board, previous_position)
   print "Current: #{root.position}\n\n"
 
   # I'lL fUcKiNG dO iT aGaIn (for each neighbor there is)
-  root.neighbors.each do |neighbor|
-    if neighbor == previous_position
-      previous_position = root.position
-      next
-    else
-      previous_position = root.position
-      knight_move(neighbor, destination, board, previous_position)
+  if root.neighbors.include?(destination)
+    knight_move(destination, destination, board, ban_list)
+  else
+    root.neighbors.each do |neighbor|
+      if ban_list.include?(neighbor)
+        next
+      else
+        ban_list.push(root.position)
+        knight_move(neighbor, destination, board, ban_list)
+      end
     end
   end
 end
@@ -84,4 +87,4 @@ def find_neighbors(root, board)
   root.neighbors
 end
 
-knight_move([0,0], [7,7], board, previous_position)
+knight_move([0,0], [5,6], board, ban_list)
