@@ -1,9 +1,9 @@
 # frozen_string_literal: false
 
 class Board
-  attr_accessor :board
+  attr_accessor :struct
 
   def initialize
-    @board = Array.new(8) { Array.new(8) { 'o' } }
+    @struct = Array.new(8) { Array.new(8) { 'o' } }
   end
 end

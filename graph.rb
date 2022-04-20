@@ -6,9 +6,7 @@ class Graph
 
   def initialize(board)
     @board = board
-  end
 
-  def build
     board.each do |row|
       row.each do |slot|
         # create a node
