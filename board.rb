@@ -4,6 +4,6 @@ class Board
   attr_accessor :struct
 
   def initialize
-    @struct = Array.new(8) { Array.new(8) { 'o' } }
+    @struct = Array.new(8) { Array.new(8) { nil } }
   end
 end

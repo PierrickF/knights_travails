@@ -3,62 +3,74 @@
 require_relative 'node'
 
 class Graph
+  attr_accessor :nodes
 
   def initialize(board)
     @board = board
+    @nodes = []
 
-    board.each do |row|
-      row.each do |slot|
+    board.each_with_index do |row, row_index|
+      row.each_with_index do |col, col_index|
         # create a node
-        root = Node.new
-        root.position = [board.index(row), row.index(slot)]
+        node = Node.new
+        node.position = [row_index, col_index]
+        print "Adding #{node.position}\n"
+        nodes.push(node)
         # find their neighbors
-        if (board[root.position[0]-1][root.position[1]-2]) &&
-        (root.position[0]-1 >= 0) &&
-        (root.position[1]-2 >= 0)
-          root.neighbors.push([root.position[0]-1,root.position[1]-2])
+        if (row_index-1 >= 0) &&
+        (row_index-1 <= 7) &&
+        (col_index-2 >= 0) &&
+        (col_index-2 <= 7)
+          node.neighbors.push([row_index-1,col_index-2])
         end
 
-        if (board[root.position[0]-1][root.position[1]+2]) &&
-        (root.position[0]-1 >= 0) &&
-        (root.position[1]+2 >= 0)
-          root.neighbors.push([root.position[0]-1,root.position[1]+2])
+        if (row_index-1 >= 0) &&
+        (row_index-1 <= 7) &&
+        (col_index+2 >= 0) &&
+        (col_index+2 <= 7)
+          node.neighbors.push([row_index-1,col_index+2])
         end
 
-        if (board[root.position[0]+1][root.position[1]+2]) &&
-        (root.position[0]+1 >= 0) &&
-        (root.position[1]+2 >= 0)
-          root.neighbors.push([root.position[0]+1,root.position[1]+2])
+        if (row_index+1 >= 0) &&
+        (row_index+1 <= 7) &&
+        (col_index+2 >= 0) &&
+        (col_index+2 <= 7)
+          node.neighbors.push([row_index+1,col_index+2])
         end
 
-        if (board[root.position[0]+1][root.position[1]-2]) &&
-        (root.position[0]+1 >= 0) &&
-        (root.position[1]-2 >= 0)
-          root.neighbors.push([root.position[0]+1,root.position[1]-2])
+        if (row_index+1 >= 0) &&
+        (row_index+1 <= 7) &&
+        (col_index-2 >= 0) &&
+        (col_index-2 <= 7)
+          node.neighbors.push([row_index+1,col_index-2])
         end
 
-        if (board[root.position[0]-2][root.position[1]-1]) &&
-        (root.position[0]-2 >= 0) &&
-        (root.position[1]-1 >= 0)
-          root.neighbors.push([root.position[0]-2,root.position[1]-1])
+        if (row_index-2 >= 0) &&
+        (row_index-2 <= 7) &&
+        (col_index-1 >= 0) &&
+        (col_index-1 <= 7)
+          node.neighbors.push([row_index-2,col_index-1])
         end
 
-        if (board[root.position[0]-2][root.position[1]+1]) &&
-        (root.position[0]-2 >= 0) &&
-        (root.position[1]+1 >= 0)
-          root.neighbors.push([root.position[0]-2,root.position[1]+1])
+        if (row_index-2 >= 0) &&
+        (row_index-2 <= 7) &&
+        (col_index+1 >= 0) &&
+        (col_index+1 <= 7)
+          node.neighbors.push([row_index-2,col_index+1])
         end
 
-        if (board[root.position[0]+2][root.position[1]+1]) &&
-        (root.position[0]+2 >= 0) &&
-        (root.position[1]+1 >= 0)
-          root.neighbors.push([root.position[0]+2,root.position[1]+1])
+        if (row_index+2 >= 0) &&
+        (row_index+2 <= 7) &&
+        (col_index+1 >= 0) &&
+        (col_index+1 <= 7)
+          node.neighbors.push([row_index+2,col_index+1])
         end
 
-        if (board[root.position[0]+2][root.position[1]+1]) &&
-        (root.position[0]+2 >= 0) &&
-        (root.position[1]+1 >= 0)
-          root.neighbors.push([root.position[0]+2,root.position[1]-1])
+        if (row_index+2 >= 0) &&
+        (row_index+2 <= 7) &&
+        (col_index-1 >= 0) &&
+        (col_index-1 <= 7)
+          node.neighbors.push([row_index+2,col_index-1])
         end
       end
     end
