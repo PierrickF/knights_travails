@@ -2,8 +2,7 @@
 
 require_relative 'node'
 
-class Tree
-  #attr_accessor :board
+class Graph
 
   def initialize(board)
     @board = board
