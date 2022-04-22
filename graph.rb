@@ -12,8 +12,7 @@ class Graph
     board.each_with_index do |row, row_index|
       row.each_with_index do |col, col_index|
         # create a node
-        node = Node.new
-        node.position = [row_index, col_index]
+        node = Node.new([row_index, col_index])
         print "Adding #{node.position}\n"
         nodes.push(node)
         # find their neighbors

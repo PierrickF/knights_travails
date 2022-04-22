@@ -3,8 +3,8 @@
 class Node
   attr_accessor :position, :neighbors
 
-  def initialize
-    @position = nil
+  def initialize(position)
+    @position = position
     @neighbors = []
   end
 end
