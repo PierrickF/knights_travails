@@ -14,13 +14,11 @@ class Graph
       row.each_with_index do |col, col_index|
         node = Node.new([row_index, col_index])
         nodes.push(node)
-        print "Added #{node.position} to the nodes list.\n"
       end
     end
 
     # loop over the nodes list
     nodes.each do |node|
-      print "Finding #{node.position}'s neighbors.\n"
 
       # check if a neighbor can exist on the board
       if (node.position[0]-1 >= 0) &&
