@@ -20,17 +20,19 @@ class Graph
       end
     end
 
-    # loop over the nodes list
+    # make the nodes point at each other if they are neighbors
+    # spiderman style
     nodes.each do |node|
-
       knight.find_neighbors(nodes, node, -1,-2)
       knight.find_neighbors(nodes, node, -1, 2)
       knight.find_neighbors(nodes, node, 1, 2)
-      knight.find_neighbors(nodes, node, -1, -2)
+      knight.find_neighbors(nodes, node, 1, -2)
       knight.find_neighbors(nodes, node, -2, -1)
       knight.find_neighbors(nodes, node, -2, 1)
       knight.find_neighbors(nodes, node, 2, 1)
       knight.find_neighbors(nodes, node, 2, -1)
     end
+
+
   end
 end
