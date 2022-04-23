@@ -16,7 +16,7 @@ class Knight
       nodes.each do |neighbor|
         if neighbor.position == [coords[0]+digit1,coords[1]+digit2]
           # add it as a neighbor
-          node.neighbors.push(neighbor)
+          node.neighbors.push({node: neighbor, distance: 1})
         end
       end
     end
