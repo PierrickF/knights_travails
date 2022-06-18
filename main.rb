@@ -1,8 +1,8 @@
 # frozen_string_literal: false
 
-require_relative 'board'
-require_relative 'graph'
-require_relative 'dijkstra'
+require_relative 'lib/board'
+require_relative 'lib/graph'
+require_relative 'lib/dijkstra'
 
 board = Board.new
 graph = Graph.new(board.struct)
