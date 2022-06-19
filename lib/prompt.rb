@@ -9,7 +9,13 @@ class Prompt
 
   def get_source
     print "Please choose a starting position.\nExample: a1\n"
-    input = gets.chomp
+    begin
+      input = gets.chomp
+      raise if !input.match(/^[a-h]{1}[1-8]{1}$/)
+    rescue
+      print "Please enter a valid coordinate in the 'a1' format.\n"
+      retry
+    end
 
     # translate 'a1' to [0, 0]
     source = []
@@ -21,7 +27,13 @@ class Prompt
 
   def get_target
     print "Please choose an ending position.\nExample: h8\n"
-    input = gets.chomp
+    begin
+      input = gets.chomp
+      raise if !input.match(/^[a-h]{1}[1-8]{1}$/)
+    rescue
+      print "Please enter a valid coordinate in the 'a1' format.\n"
+      retry
+    end
 
     # translate 'a1' to [0, 0]
     target = []
