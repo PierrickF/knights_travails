@@ -18,14 +18,12 @@ class Dijkstra
       end
     end
 
-    print "All the other distances were set to #{1.0/0}.\n"
+    print "All the other distances were set to #{1.0/0}.\n\n"
 
-    # make a copy of the graph
     q_graph = graph
-    print "Graph copied.\n"
+    print "Graph copied.\n\n"
 
     q_graph.nodes.each do |node|
-      print node.position
       if node.position == target
         @target_node = node
       end
@@ -35,7 +33,7 @@ class Dijkstra
       u = find_min(q_graph)
       print "#{u.position} has the smallest distance in the graph.\n"
       q_graph.nodes.delete(u)
-      print "#{u.position} has been removed from the graph.\n"
+      print "#{u.position} has been removed from the graph.\n\n"
       u.neighbors.each { |v| relaxation(u, v) if q_graph.nodes.include?(v[0]) }
     end
 
@@ -48,16 +46,18 @@ class Dijkstra
       end
     end
 
+    print "Shortest path including source and target:\n"
     path.each do |node|
-      puts "#{node.position}\n"
+      print "#{node.position}\n"
     end
+    print "\n"
   end
 
   # Since a neighbor is stored as [node, distance_to_parent]
   # v[0] refers to the actual node
   # and v[1] refers to its distance to its parent
   def relaxation(u, v)
-    print "Relaxing #{u.position} and #{v[0].position}\n"
+    print "Relaxing #{u.position} and #{v[0].position}\n\n"
      if (u.distance + v[1]) < v[0].distance
       v[0].distance = u.distance + v[1]
       v[0].previous = u
