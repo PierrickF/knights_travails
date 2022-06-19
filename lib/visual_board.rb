@@ -1,7 +1,7 @@
 # frozen_string_literal: false
 
 class VisualBoard
-  attr_accessor :struct
+  attr_reader :struct
 
   def initialize
     @ranks = %w[a b c d e f g h]

@@ -8,7 +8,7 @@ class Prompt
   end
 
   def get_source
-    print "Please choose a starting position.\nExample: a1\n\n"
+    print "Please choose a starting position.\nExample: a1\n"
     input = gets.chomp
 
     # translate 'a1' to [0, 0]
@@ -20,7 +20,7 @@ class Prompt
   end
 
   def get_target
-    print "Please choose an ending position.\nExample: h8\n\n"
+    print "Please choose an ending position.\nExample: h8\n"
     input = gets.chomp
 
     # translate 'a1' to [0, 0]

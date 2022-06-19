@@ -1,6 +1,7 @@
 # frozen_string_literal: false
 
 class Dijkstra
+  attr_reader :shortest_path
 
   def initialize(graph, start, target)
     @graph = graph
@@ -37,6 +38,7 @@ class Dijkstra
       u.neighbors.each { |v| relaxation(u, v) if q_graph.nodes.include?(v[0]) }
     end
 
+    # path is an array of nodes
     path = []
     u = @target_node
     if u.previous || u.position == start
@@ -46,11 +48,11 @@ class Dijkstra
       end
     end
 
-    print "Shortest path including source and target:\n"
+    # shortest_path is an array of node positions
+    @shortest_path = []
     path.each do |node|
-      print "#{node.position}\n"
+      @shortest_path.push(node.position)
     end
-    print "\n"
   end
 
   # Since a neighbor is stored as [node, distance_to_parent]
