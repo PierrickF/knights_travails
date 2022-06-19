@@ -7,15 +7,17 @@ require_relative 'lib/graph'
 require_relative 'lib/dijkstra'
 require_relative 'lib/visual_board'
 require_relative 'lib/visual_board_square'
-
+require_relative 'lib/prompt'
 
 board = Board.new
-graph = Graph.new(board.struct)
+visual = VisualBoard.new
+prompt = Prompt.new
 
-source = [0, 0]
-target = [7, 7]
+
+
+visual.show
+graph = Graph.new(board.struct)
+source = prompt.get_source
+target = prompt.get_target
 
 algo = Dijkstra.new(graph, source, target)
-
-visual = VisualBoard.new
-visual.show
